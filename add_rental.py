@@ -20,9 +20,17 @@ def add_rental():
 
     # Get rental details from user input
     driver_number = input("Enter driver number: ")
-    start_date = input("Enter start date (YYYY-MM-DD) or press Enter for today: ")
-    if not start_date:
-        start_date = datetime.date.today().strftime("%Y-%m-%d")
+    while True:
+        date_input = input("Enter start date or press Enter for today: ")
+        if not date_input:
+            start_date = datetime.date.today()
+            break
+        try:
+            start_date = parser.parse(date_input).date()
+            break
+        except parser.ParserError:
+            print("Invalid date format. Please try again.")
+    start_date_str = start_date.strftime("%Y-%m-%d")
     car_number = input("Enter car number (1-4): ")
     rental_type = input("Enter rental type (D for Day, W for Week): ").upper()
 

@@ -17,9 +17,17 @@ def add_revenue():
     hst_rate = float(defaults["HST_RATE"])
 
     # Get revenue details from user input
-    transaction_date = input("Enter transaction date (YYYY-MM-DD) or press Enter for today: ")
-    if not transaction_date:
-        transaction_date = datetime.date.today().strftime("%Y-%m-%d")
+    while True:
+        date_input = input("Enter transaction date or press Enter for today: ")
+        if not date_input:
+            transaction_date = datetime.date.today()
+            break
+        try:
+            transaction_date = parser.parse(date_input).date()
+            break
+        except parser.ParserError:
+            print("Invalid date format. Please try again.")
+    transaction_date_str = transaction_date.strftime("%Y-%m-%d")
     description = input("Enter description: ")
     driver_number = input("Enter driver number: ")
     amount = float(input("Enter amount: "))

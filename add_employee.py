@@ -1,4 +1,6 @@
 import csv
+from dateutil import parser
+import datetime
 
 def add_employee():
     """Adds a new employee to the Employees.csv file."""
@@ -9,7 +11,14 @@ def add_employee():
     address = input("Enter address: ")
     phone_number = input("Enter phone number: ")
     license_number = input("Enter driver's license number: ")
-    license_expiry = input("Enter license expiry date (YYYY-MM-DD): ")
+    while True:
+        date_input = input("Enter license expiry date: ")
+        try:
+            license_expiry = parser.parse(date_input).date()
+            break
+        except parser.ParserError:
+            print("Invalid date format. Please try again.")
+    license_expiry_str = license_expiry.strftime("%Y-%m-%d")
     insurance_company = input("Enter insurance company: ")
     policy_number = input("Enter insurance policy number: ")
     owns_car = input("Does the driver have their own car? (Y/N): ").upper()

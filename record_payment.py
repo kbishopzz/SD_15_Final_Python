@@ -7,9 +7,17 @@ def record_payment():
 
     # Get payment details from user input
     driver_number = input("Enter driver number: ")
-    payment_date = input("Enter payment date (YYYY-MM-DD) or press Enter for today: ")
-    if not payment_date:
-        payment_date = datetime.date.today().strftime("%Y-%m-%d")
+    while True:
+        date_input = input("Enter payment date or press Enter for today: ")
+        if not date_input:
+            payment_date = datetime.date.today()
+            break
+        try:
+            payment_date = parser.parse(date_input).date()
+            break
+        except parser.ParserError:
+            print("Invalid date format. Please try again.")
+    payment_date_str = payment_date.strftime("%Y-%m-%d")
     payment_amount = float(input("Enter payment amount: "))
     reason = input("Enter reason for payment: ")
     payment_method = input("Enter payment method (Cash, Debit, Visa): ")

@@ -17,9 +17,17 @@ def add_expense():
 
     # Get expense details from user input
     invoice_number = input("Enter invoice number: ")
-    invoice_date = input("Enter invoice date (YYYY-MM-DD) or press Enter for today: ")
-    if not invoice_date:
-        invoice_date = datetime.date.today().strftime("%Y-%m-%d")
+    while True:
+        date_input = input("Enter invoice date or press Enter for today: ")
+        if not date_input:
+            invoice_date = datetime.date.today()
+            break
+        try:
+            invoice_date = parser.parse(date_input).date()
+            break
+        except parser.ParserError:
+            print("Invalid date format. Please try again.")
+    invoice_date_str = invoice_date.strftime("%Y-%m-%d")
     driver_number = input("Enter driver number: ")
 
     items = []
