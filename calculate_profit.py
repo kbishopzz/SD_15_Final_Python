@@ -23,13 +23,14 @@ def calculate_profit():
     # Calculate profit
     profit = total_revenue - total_expenses
 
-    # Display the results
-    print("Company Profitability Report")
-    print("============================")
-    print(f"Total Revenue: ${total_revenue:,.2f}")
-    print(f"Total Expenses: ${total_expenses:,.2f}")
-    print("----------------------------")
-    print(f"Profit: ${profit:,.2f}")
+    print("\n-----------------------------------------")
+    print("     Company Profitability Report")
+    print("-----------------------------------------")
+    print(f"  Total Revenue:        ${total_revenue:,.2f}")
+    print(f"  Total Expenses:       ${total_expenses:,.2f}")
+    print("-----------------------------------------")
+    print(f"  Profit:               ${profit:,.2f}")
+    print("-----------------------------------------")
 
 if __name__ == "__main__":
     calculate_profit()

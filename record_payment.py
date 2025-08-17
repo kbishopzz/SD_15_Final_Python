@@ -15,13 +15,18 @@ def record_payment():
     payment_method = input("Enter payment method (Cash, Debit, Visa): ")
 
     # Get the next payment ID
+    next_payment_id = 1
     try:
-        with open("Payments.csv", "r") as f:
-            last_line = f.readlines()[-1]
-            last_payment_id = int(last_line.split(",")[0])
-            next_payment_id = last_payment_id + 1
-    except (IOError, IndexError):
-        next_payment_id = 1
+        with open("Payments.csv", "r", newline="") as f:
+            reader = csv.reader(f)
+            header = next(reader, None)  # Skip header
+            last_row = None
+            for row in reader:
+                last_row = row
+            if last_row:
+                next_payment_id = int(last_row[0]) + 1
+    except (IOError, StopIteration):
+        pass  # File doesn't exist or is empty
 
     # 1. Add to Payments.csv
     payment_data = [
@@ -51,7 +56,16 @@ def record_payment():
         writer = csv.writer(f)
         writer.writerows(employees)
 
-    print("Payment recorded successfully!")
+    print("\n-----------------------------------------")
+    print("   Payment Recorded Successfully!")
+    print("-----------------------------------------")
+    print(f"  Payment ID:         {next_payment_id}")
+    print(f"  Driver Number:      {driver_number}")
+    print(f"  Payment Date:       {payment_date}")
+    print(f"  Payment Amount:     ${payment_amount:.2f}")
+    print(f"  Reason:             {reason}")
+    print(f"  Payment Method:     {payment_method}")
+    print("-----------------------------------------")
 
 if __name__ == "__main__":
     record_payment()

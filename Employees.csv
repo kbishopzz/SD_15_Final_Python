@@ -1,9 +1,11 @@
 DriverNumber,Name,Address,PhoneNumber,LicenseNumber,LicenseExpiry,InsuranceCompany,PolicyNumber,OwnsCar,BalanceDue
 33,Jackson Bishop,18 Yetmans Lane,709-702-1732,B153012013,2026-12-30,BelAir Direct,PC88786,Y,164.77
-12,Axel Bishop,18 Yetmans Lane,709-765-4538,B191127,2027-11-27,Anthony Insurance,ABA35972,N,556.76
+12,Axel Bishop,18 Yetmans Lane,709-765-4538,B191127,2027-11-27,Anthony Insurance,ABA35972,N,901.76
 13,Peter Jones,72 Main St,709-836-4592,B255951,2028-03-12,Anthony Insurance,P373463,Y,210.07
 14,Mary Jones,62 Main St,709-218-9486,B642575,2028-02-02,Anthony Insurance,P151305,Y,505.29
 15,Peter Miller,17 Main St,709-771-1775,B915413,2028-08-05,TD Insurance,P812864,N,768.56
 16,Jane Brown,16 Main St,709-901-4376,B155658,2028-03-17,BelAir Direct,P680728,Y,894.35
 17,Peter Brown,33 Main St,709-872-1938,B362196,2028-01-18,BelAir Direct,P784874,Y,820.07
 18,Peter Miller,8 Main St,709-703-2094,B676179,2028-05-17,RBC Insurance,P332511,Y,498.4
+88,Krystle Pye,18 Yetmans Lane,709-707-5300,P853014101,2026-04-30,Anthony Insurance,PO3456765r4,Y,69.00
+64,Olivia Bishop,18 Yetmans Lane,709-888-6564,B5346257,2029-12-12,Anthony Insurance,PO123454,Y,

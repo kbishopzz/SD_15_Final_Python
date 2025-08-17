@@ -94,7 +94,11 @@ def add_rental():
 
     for i in range(1, len(employees)):
         if employees[i][0] == driver_number:
-            employees[i][9] = f"{float(employees[i][9]) + total_cost:.2f}"
+            try:
+                balance = float(employees[i][9])
+            except (ValueError, IndexError):
+                balance = 0.0
+            employees[i][9] = f"{balance + total_cost:.2f}"
             break
 
     with open("Employees.csv", "w", newline="") as f:
@@ -107,7 +111,20 @@ def add_rental():
         for key, value in defaults.items():
             f.write(f"{key}={value}\n")
 
-    print("Rental recorded successfully!")
+    print("\n-----------------------------------------")
+    print("   Rental Recorded Successfully!")
+    print("-----------------------------------------")
+    print(f"  Rental ID:          {next_rental_id}")
+    print(f"  Driver Number:      {driver_number}")
+    print(f"  Start Date:         {start_date}")
+    print(f"  Car Number:         {car_number}")
+    print(f"  Rental Type:        {rental_type_desc}")
+    print(f"  Number of Days:     {num_days}")
+    print("-----------------------------------------")
+    print(f"  Rental Cost:        ${rental_cost:.2f}")
+    print(f"  HST:                ${hst:.2f}")
+    print(f"  Total Cost:         ${total_cost:.2f}")
+    print("-----------------------------------------")
 
 if __name__ == "__main__":
     add_rental()

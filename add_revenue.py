@@ -50,7 +50,17 @@ def add_revenue():
         for key, value in defaults.items():
             f.write(f"{key}={value}\n")
 
-    print("Revenue recorded successfully!")
+    print("\n-----------------------------------------")
+    print("   Revenue Recorded Successfully!")
+    print("-----------------------------------------")
+    print(f"  Transaction Number:  {next_transaction_number}")
+    print(f"  Transaction Date:    {transaction_date}")
+    print(f"  Driver Number:       {driver_number}")
+    print(f"  Description:         {description}")
+    print(f"  Amount:              ${amount:.2f}")
+    print(f"  HST:                 ${hst:.2f}")
+    print(f"  Total:               ${total:.2f}")
+    print("-----------------------------------------")
 
 if __name__ == "__main__":
     add_revenue()

@@ -34,7 +34,20 @@ def add_employee():
         writer = csv.writer(f)
         writer.writerow(employee_data)
 
-    print("Employee added successfully!")
+    print("\n-----------------------------------------")
+    print("   New Employee Added Successfully!")
+    print("-----------------------------------------")
+    print(f"  Driver Number:       {driver_number}")
+    print(f"  Name:                {name}")
+    print(f"  Address:             {address}")
+    print(f"  Phone Number:        {phone_number}")
+    print(f"  License Number:      {license_number}")
+    print(f"  License Expiry:      {license_expiry}")
+    print(f"  Insurance Company:   {insurance_company}")
+    print(f"  Policy Number:       {policy_number}")
+    print(f"  Owns Car:            {owns_car}")
+    print(f"  Balance Due:         {balance_due}")
+    print("-----------------------------------------")
 
 if __name__ == "__main__":
     add_employee()

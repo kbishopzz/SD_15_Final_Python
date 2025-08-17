@@ -10,7 +10,11 @@ def show_employee_financials():
         reader = csv.reader(f)
         next(reader)  # Skip header
         for row in reader:
-            employees[row[0]] = {"name": row[1], "balance": float(row[9])}
+            try:
+                balance = float(row[9])
+            except (ValueError, IndexError):
+                balance = 0.0
+            employees[row[0]] = {"name": row[1], "balance": balance}
 
     # Calculate total revenue per driver
     revenues = {}
@@ -38,16 +42,17 @@ def show_employee_financials():
             else:
                 payments[driver_number] = amount
 
-    # Display the report
-    print("Employee Financial Report")
-    print("=========================")
+    print("\n-----------------------------------------")
+    print("      Employee Financial Report")
+    print("-----------------------------------------")
 
     for driver_number, details in employees.items():
-        print(f"Driver: {details['name']} (#{driver_number})")
-        print(f"  Current Balance Due: ${details['balance']:,.2f}")
-        print(f"  Total Revenue Generated: ${revenues.get(driver_number, 0):,.2f}")
-        print(f"  Total Payments Made: ${payments.get(driver_number, 0):,.2f}")
-        print("-------------------------")
+        print(f"  Driver: {details['name']} (#{driver_number})")
+        print("-----------------------------------------")
+        print(f"    Current Balance Due:     ${details['balance']:,.2f}")
+        print(f"    Total Revenue Generated: ${revenues.get(driver_number, 0):,.2f}")
+        print(f"    Total Payments Made:     ${payments.get(driver_number, 0):,.2f}")
+        print("-----------------------------------------\n")
 
 if __name__ == "__main__":
     show_employee_financials()

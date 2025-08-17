@@ -53,7 +53,21 @@ def add_expense():
             )
             writer.writerow(expense_data)
 
-    print("Expense recorded successfully!")
+    print("\n-----------------------------------------")
+    print("   Expense Recorded Successfully!")
+    print("-----------------------------------------")
+    print(f"  Invoice Number: {invoice_number}")
+    print(f"  Invoice Date:   {invoice_date}")
+    print(f"  Driver Number:  {driver_number}")
+    print("-----------------------------------------")
+    print("  Items:")
+    for item in items:
+        print(f"    - {item[1]:<20} {item[3]} @ ${item[2]:.2f}\tTotal: ${item[4]:.2f}")
+    print("-----------------------------------------")
+    print(f"  Subtotal:           ${subtotal:.2f}")
+    print(f"  HST:                ${hst:.2f}")
+    print(f"  Total:              ${total:.2f}")
+    print("-----------------------------------------")
 
 if __name__ == "__main__":
     add_expense()

@@ -16,3 +16,7 @@ TransactionID,TransactionDate,Description,DriverNumber,Amount,HST,Total
 157,2025-05-19,Luggage Fee,12,99.36,14.9,114.26
 158,2025-01-20,Luggage Fee,12,47.0,7.05,54.05
 159,2025-04-04,Tip,33,34.0,5.1,39.1
+145,2025-08-17,Car rental - Daily,88,60.00,9.00,69.00
+145,2025-08-17,Car rental - Daily,88,60.00,9.00,69.00
+146,2025-08-17,Car Rental,12,200.00,30.00,230.00
+147,2025-08-17,Car rental - Weekly,12,300.00,45.00,345.00
