@@ -100,7 +100,20 @@ def charge_stand_fees():
     print("Monthly stand fees charged successfully.")
 
 
+def pause_and_prompt():
+    print("\n--- Action Completed ---")
+    while True:
+        choice = input("Enter 'C' to continue or 'Q' to quit: ").lower()
+        if choice == 'q':
+            print("Exiting program.")
+            exit()
+        elif choice == 'c':
+            break
+        else:
+            print("Invalid choice. Please enter 'c' or 'q'.")
+
 def main():
+
     charge_stand_fees()
     while True:
         print("HAB Taxi Services")
@@ -118,18 +131,25 @@ def main():
 
         if choice == '1':
             add_employee.add_employee()
+            pause_and_prompt()
         elif choice == '2':
             add_revenue.add_revenue()
+            pause_and_prompt()
         elif choice == '3':
             add_expense.add_expense()
+            pause_and_prompt()
         elif choice == '4':
             add_rental.add_rental()
+            pause_and_prompt()
         elif choice == '5':
             record_payment.record_payment()
+            pause_and_prompt()
         elif choice == '6':
             calculate_profit.calculate_profit()
+            pause_and_prompt()
         elif choice == '7':
             employee_financials.show_employee_financials()
+            pause_and_prompt()
         elif choice == '8':
             print("Exiting program.")
             break

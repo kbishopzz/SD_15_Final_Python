@@ -9,4 +9,8 @@ DriverNumber,Name,Address,PhoneNumber,LicenseNumber,LicenseExpiry,InsuranceCompa
 18,Peter Miller,8 Main St,709-703-2094,B676179,2028-05-17,RBC Insurance,P332511,Y,498.4
 88,Krystle Pye,18 Yetmans Lane,709-707-5300,P853014101,2026-04-30,Anthony Insurance,PO3456765r4,Y,69.00
 64,Olivia Bishop,18 Yetmans Lane,709-888-6564,B5346257,2029-12-12,Anthony Insurance,PO123454,Y,
-64,Hannah Pye,135 Highroad South,709-876-4565,P3252436,2026-12-03,TD,TD09876,Y,
+63,Hannah Pye,135 Highroad South,709-876-4565,P3252436,2026-12-03,TD,TD09876,Y,
+44,Harry Huber,123 Taxi Road,7097875432,123456,2027-10-12,TD Insurance,5647,Y,
+55,Archie Huber,123 Taxi Road,70976543325,153627,2029-07-06,TD Insurance,23456ty,Y,
+66,Brian huber,123 Taxi LAne,7099876756,647839878,2029-07-16,TD Insurance,34567543,Y,
+1440,KEith Michaels,14 Battens Road,7097865465,B453527012,2027-06-07,Anthony Insurance,456789,N,
