@@ -6,10 +6,16 @@
 
 I have made some updates to the requirements that I have been asked to do. I have made some changes to the code, and have also added some new features to the code.
 
-I moved the code to increase the drivers number of bookings and rentals from the defaults.dat file to an inline script inside of the respective functions.  This helps against potential data corruption if the defaults.dat file become manually modified or corrupted.
+The functions to increase the drivers number of bookings and rentals have been moved from the defaults.dat file to an inline script inside of the respective functions.  This helps against potential data corruption if the defaults.dat file become manually modified or corrupted.
 
 
-I have also added a new "Pause & Continue" function that will pause the screen and displays a "--- Action Completed ---" message. It then prompts the user to enter 'C' to continue back to the main menu or 'Q' to quit the program. This allows you to review the details of the transaction you just entered without the screen clearing immediately.to view the booking and rental records after enetring the datat by implementing a pause function.
+Added a new "Pause & Continue" function that will pause the screen and displays a "--- Action Completed ---" message. It then prompts the user to enter 'C' to continue back to the main menu or 'Q' to quit the program. This allows you to review the details of the transaction you just entered without the screen clearing immediately.to view the booking and rental records after enetring the datat by implementing a pause function.
+
+The last_run.dat file as a function first checks if it's the first day of the month.  If the file exists and contains a date from the current month and year, the function will not charge the fees again.
+
+If the file doesn't exist, or if the date is from a previous month, the function proceeds to charge the stand fees to the appropriate drivers and then records the current date into last_run.dat.
+
+
 
 
 
