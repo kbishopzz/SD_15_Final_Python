@@ -13,9 +13,9 @@ def add_revenue():
     defaults = {}
     with open("Defaults.dat", "r") as f:
         for line in f:
-            key, value = line.strip().split(':')
+            key, value = line.strip().upper().split(':')
             defaults[key] = float(value)
-    hst_rate = defaults.get('hst_rate', 0.15)
+    hst_rate = defaults.get('HST_RATE', 0.15)
 
     # Get the next transaction number from Revenues.csv
     next_transaction_number = 1

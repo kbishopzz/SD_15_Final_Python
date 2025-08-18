@@ -1,4 +1,4 @@
-stand_fee:175.00
-hst_rate:0.15
-daily_rental_fee:20.00
-weekly_rental_fee:300.00
+STAND_FEE:175.00
+HST_RATE:0.15
+DAILY_RENTAL_FEE:20.00
+WEEKLY_RENTAL_FEE:300.00

@@ -13,11 +13,11 @@ def add_rental():
     defaults = {}
     with open("Defaults.dat", "r") as f:
         for line in f:
-            key, value = line.strip().split(':')
+            key, value = line.strip().upper().split(':')
             defaults[key] = float(value)
-    daily_rate = defaults.get('daily_rental_fee', 20.00)
-    weekly_rate = defaults.get('weekly_rental_fee', 100.00)
-    hst_rate = defaults.get('hst_rate', 0.15)
+    daily_rate = defaults.get('DAILY_RENTAL_FEE', 20.00)
+    weekly_rate = defaults.get('WEEKLY_RENTAL_FEE', 100.00)
+    hst_rate = defaults.get('HST_RATE', 0.15)
 
     # Get the next transaction number from Revenues.csv
     next_transaction_number = 1
