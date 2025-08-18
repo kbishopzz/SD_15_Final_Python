@@ -1,3 +1,6 @@
+# employee_financials.py
+# Functionsfor displaying employee financial reports. How much is owed, how much is paid,and  revenue generation.
+# Associated with employees.csv, revenues.csv, and
 
 import csv
 

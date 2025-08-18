@@ -1,3 +1,6 @@
+# add_revenue.py
+# Function for entering and displaying company revenue data for use in financial reports.
+# Associated with revenues.csv
 
 import csv
 from dateutil import parser
@@ -7,15 +10,24 @@ def add_revenue():
     """Adds a new revenue record to the Revenues.csv file."""
 
     # Read default values from Defaults.dat
+    defaults = {}
     with open("Defaults.dat", "r") as f:
-        lines = f.readlines()
-        defaults = {}
-        for line in lines:
-            key, value = line.strip().split("=")
-            defaults[key] = value
+        for line in f:
+            key, value = line.strip().split(':')
+            defaults[key] = float(value)
+    hst_rate = defaults.get('hst_rate', 0.15)
 
-    next_transaction_number = int(defaults["NEXT_TRANSACTION_NUMBER"])
-    hst_rate = float(defaults["HST_RATE"])
+    # Get the next transaction number from Revenues.csv
+    next_transaction_number = 1
+    try:
+        with open("Revenues.csv", "r") as f:
+            reader = csv.reader(f)
+            all_lines = list(reader)
+            if len(all_lines) > 1:
+                last_line = all_lines[-1]
+                next_transaction_number = int(last_line[0]) + 1
+    except (IOError, IndexError, StopIteration):
+        pass
 
     # Get revenue details from user input
     while True:
@@ -52,12 +64,6 @@ def add_revenue():
     with open("Revenues.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(revenue_data)
-
-    # Update the next transaction number in Defaults.dat
-    defaults["NEXT_TRANSACTION_NUMBER"] = str(next_transaction_number + 1)
-    with open("Defaults.dat", "w") as f:
-        for key, value in defaults.items():
-            f.write(f"{key}={value}\n")
 
     print("\n-----------------------------------------")
     print("   Revenue Recorded Successfully!")

@@ -1,3 +1,6 @@
+# record_payment.py
+# Function for entering payment information from employees. Used in financial and employee reports.
+# Associtaed with payments.csv and employees.csv
 
 import csv
 import datetime

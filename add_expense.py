@@ -1,3 +1,6 @@
+# add_expense.py
+# Function for entering and displaying company expense data for use in financial reports.
+# Associated with expenses.csv
 
 import csv
 from dateutil import parser
@@ -7,14 +10,12 @@ def add_expense():
     """Adds a new expense record to the Expenses.csv file."""
 
     # Read default values from Defaults.dat
+    defaults = {}
     with open("Defaults.dat", "r") as f:
-        lines = f.readlines()
-        defaults = {}
-        for line in lines:
-            key, value = line.strip().split("=")
-            defaults[key] = value
-
-    hst_rate = float(defaults["HST_RATE"])
+        for line in f:
+            key, value = line.strip().split(':')
+            defaults[key] = float(value)
+    hst_rate = defaults.get('hst_rate', 0.15)
 
     # Get expense details from user input
     invoice_number = input("Enter invoice number: ")

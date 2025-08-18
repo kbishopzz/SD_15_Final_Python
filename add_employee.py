@@ -1,3 +1,7 @@
+# add_employee.py
+# Function for entering and displaying employee information. 
+# Associated with employees.csv
+
 import csv
 from dateutil import parser
 import datetime

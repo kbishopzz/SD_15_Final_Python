@@ -1,3 +1,6 @@
+# calculate_profit.py
+# Function for displaying financial operations reports around overall profitability of HAB Taxo Co.
+# Associated with revenues.csv and expenses.csv
 
 import csv
 

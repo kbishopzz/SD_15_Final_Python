@@ -1,3 +1,10 @@
+# Desc:   HAB Taxi Services Booking & Reporting System
+# Author: Keith Bishop
+# Dates:  August 19, 2025
+# Version: 1.0
+# Purpose: This program manages teh day-to-day operations of HAB TAaxi Co. Along with recording booking and rental info, its also creates business reports that assist with the back-office operational needs of HAB Taxi Co.
+
+
 import add_employee
 import add_revenue
 import add_expense
@@ -26,9 +33,14 @@ def charge_stand_fees():
     except FileNotFoundError:
         pass
 
-    # Get the stand fee and HST rate. Since Defaults.dat is not readable, use hardcoded values.
-    stand_fee = 175.00
-    hst_rate = 0.15
+    # Get the stand fee and HST rate from Defaults.dat.
+    defaults = {}
+    with open("Defaults.dat", "r") as f:
+        for line in f:
+            key, value = line.strip().split(':')
+            defaults[key] = float(value)
+    stand_fee = defaults.get('stand_fee', 175.00)
+    hst_rate = defaults.get('hst_rate', 0.15)
 
     # Get the next transaction number from Revenues.csv
     next_transaction_number = 1
@@ -110,13 +122,13 @@ def pause_and_prompt():
         elif choice == 'c':
             break
         else:
-            print("Invalid choice. Please enter 'c' or 'q'.")
+            print("Invalid choice. Please enter 'C' or 'Q'.")
 
 def main():
 
     charge_stand_fees()
     while True:
-        print("HAB Taxi Services")
+        print("HAB Taxi Services Co.")
         print("Company Services System")
         print("1. Enter a New Employee (driver).")
         print("2. Enter Company Revenues.")

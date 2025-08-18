@@ -1,3 +1,6 @@
+# add_rental.py
+# Function for entering rental information of the car fleet.The core function of the company and used in financial and employee reports
+# Associated with rentals.csv, revenues.csv, and employees.csv
 
 import csv
 from dateutil import parser
@@ -7,17 +10,26 @@ def add_rental():
     """Tracks a new car rental."""
 
     # Read default values from Defaults.dat
+    defaults = {}
     with open("Defaults.dat", "r") as f:
-        lines = f.readlines()
-        defaults = {}
-        for line in lines:
-            key, value = line.strip().split("=")
-            defaults[key] = value
+        for line in f:
+            key, value = line.strip().split(':')
+            defaults[key] = float(value)
+    daily_rate = defaults.get('daily_rental_fee', 20.00)
+    weekly_rate = defaults.get('weekly_rental_fee', 100.00)
+    hst_rate = defaults.get('hst_rate', 0.15)
 
-    daily_rate = float(defaults["DAILY_RENTAL_FEE"])
-    weekly_rate = float(defaults["WEEKLY_RENTAL_FEE"])
-    hst_rate = float(defaults["HST_RATE"])
-    next_transaction_number = int(defaults["NEXT_TRANSACTION_NUMBER"])
+    # Get the next transaction number from Revenues.csv
+    next_transaction_number = 1
+    try:
+        with open("Revenues.csv", "r") as f:
+            reader = csv.reader(f)
+            all_lines = list(reader)
+            if len(all_lines) > 1:
+                last_line = all_lines[-1]
+                next_transaction_number = int(last_line[0]) + 1
+    except (IOError, IndexError, StopIteration):
+        pass
 
     # Get rental details from user input
     driver_number = input("Enter driver number: ")
@@ -113,12 +125,6 @@ def add_rental():
     with open("Employees.csv", "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(employees)
-
-    # Update the next transaction number in Defaults.dat
-    defaults["NEXT_TRANSACTION_NUMBER"] = str(next_transaction_number + 1)
-    with open("Defaults.dat", "w") as f:
-        for key, value in defaults.items():
-            f.write(f"{key}={value}\n")
 
     print("\n-----------------------------------------")
     print("   Rental Recorded Successfully!")

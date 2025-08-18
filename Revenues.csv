@@ -24,3 +24,7 @@ TransactionID,TransactionDate,Description,DriverNumber,Amount,HST,Total
 149,2025-08-17,Car rental - Weekly,12,300.00,45.00,345.00
 150,2025-08-17,Car rental - Weekly,12,300.00,45.00,345.00
 151,2025-08-17,asdf,33,12.00,1.80,13.80
+152,2025-08-18,Car rental - Weekly,101,300.00,45.00,345.00
+153,2025-08-18,Airport Run,101,35.00,5.25,40.25
+154,2025-08-18,Car rental - Weekly,12,100.00,15.00,115.00
+155,2025-08-18,Car rental - Weekly,12,300.00,45.00,345.00
