@@ -9,7 +9,7 @@ def show_employee_financials():
 
     # Read employee data
     employees = {}
-    with open("Employees.csv", "r") as f:
+    with open("employees.csv", "r") as f:
         reader = csv.reader(f)
         next(reader)  # Skip header
         for row in reader:
@@ -21,7 +21,7 @@ def show_employee_financials():
 
     # Calculate total revenue per driver
     revenues = {}
-    with open("Revenues.csv", "r") as f:
+    with open("revenues.csv", "r") as f:
         reader = csv.reader(f)
         next(reader)  # Skip header
         for row in reader:
@@ -34,7 +34,7 @@ def show_employee_financials():
 
     # Calculate total payments per driver
     payments = {}
-    with open("Payments.csv", "r") as f:
+    with open("payments.csv", "r") as f:
         reader = csv.reader(f)
         next(reader)  # Skip header
         for row in reader:

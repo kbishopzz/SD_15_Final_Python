@@ -15,4 +15,5 @@ DriverNumber,Name,Address,PhoneNumber,LicenseNumber,LicenseExpiry,InsuranceCompa
 66,Brian huber,123 Taxi LAne,7099876756,647839878,2029-07-16,TD Insurance,34567543,Y,
 1440,KEith Michaels,14 Battens Road,7097865465,B453527012,2027-06-07,Anthony Insurance,456789,N,
 101,Jude Law,742 Any Street,9028786545,DG54643,2027-12-06,TD Insurance,TDP7654567,N,0.00
-981,Alex Cross,545 Psycho Street,7096666666,PSY666,2027-12-05,TD Insurance,TD666,N,345.00
+981,Alex Cross,545 Psycho Street,7096666666,PSY666,2027-12-05,TD Insurance,TD666,N,0.00
+345,David Davies,451 Cowtow Way,4034567656,GG554466,2028-09-08,TD Insurance,TD45654565,Y,95.00

@@ -42,10 +42,10 @@ def charge_stand_fees():
     stand_fee = defaults.get('STAND_FEE', 175.00)
     hst_rate = defaults.get('HST_RATE', 0.15)
 
-    # Get the next transaction number from Revenues.csv
+    # Get the next transaction number from revenues.csv
     next_transaction_number = 1
     try:
-        with open("Revenues.csv", "r") as f:
+        with open("revenues.csv", "r") as f:
             reader = csv.reader(f)
             all_lines = list(reader)
             if len(all_lines) > 1:
@@ -58,7 +58,7 @@ def charge_stand_fees():
     employees_to_charge = []
     employees_data = []
     try:
-        with open("Employees.csv", "r", newline='') as f:
+        with open("employees.csv", "r", newline='') as f:
             reader = csv.reader(f)
             employees_data = list(reader)
 
@@ -67,7 +67,7 @@ def charge_stand_fees():
             if len(row) > 8 and row[8].upper() == 'Y':
                 employees_to_charge.append(row)
     except FileNotFoundError:
-        print("Employees.csv not found. Cannot charge stand fees.")
+        print("employees.csv not found. Cannot charge stand fees.")
         return
 
     if not employees_to_charge:
@@ -89,7 +89,7 @@ def charge_stand_fees():
             f"{hst:.2f}",
             f"{total:.2f}",
         ]
-        with open("Revenues.csv", "a", newline="") as f:
+        with open("revenues.csv", "a", newline="") as f:
             writer = csv.writer(f)
             writer.writerow(revenue_data)
 
@@ -102,7 +102,7 @@ def charge_stand_fees():
                 employees_data[i][9] = f"{new_balance:.2f}"
                 break
 
-    with open("Employees.csv", "w", newline="") as f:
+    with open("employees.csv", "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(employees_data)
 

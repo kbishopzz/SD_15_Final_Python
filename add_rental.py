@@ -19,10 +19,10 @@ def add_rental():
     weekly_rate = defaults.get('WEEKLY_RENTAL_FEE', 100.00)
     hst_rate = defaults.get('HST_RATE', 0.15)
 
-    # Get the next transaction number from Revenues.csv
+    # Get the next transaction number from revenues.csv
     next_transaction_number = 1
     try:
-        with open("Revenues.csv", "r") as f:
+        with open("revenues.csv", "r") as f:
             reader = csv.reader(f)
             all_lines = list(reader)
             if len(all_lines) > 1:
@@ -66,7 +66,7 @@ def add_rental():
     # Get the next rental ID
     next_rental_id = 1
     try:
-        with open("Rentals.csv", "r", newline="") as f:
+        with open("rentals.csv", "r", newline="") as f:
             reader = csv.reader(f)
             header = next(reader, None)  # Skip header
             last_row = None
@@ -77,7 +77,7 @@ def add_rental():
     except (IOError, StopIteration):
         pass  # File doesn't exist or is empty
 
-    # 1. Add to Rentals.csv
+    # 1. Add to rentals.csv
     rental_data = [
         next_rental_id,
         driver_number,
@@ -89,11 +89,11 @@ def add_rental():
         f"{hst:.2f}",
         f"{total_cost:.2f}",
     ]
-    with open("Rentals.csv", "a", newline="") as f:
+    with open("rentals.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(rental_data)
 
-    # 2. Add to Revenues.csv
+    # 2. Add to revenues.csv
     revenue_data = [
         next_transaction_number,
         start_date,
@@ -103,13 +103,13 @@ def add_rental():
         f"{hst:.2f}",
         f"{total_cost:.2f}",
     ]
-    with open("Revenues.csv", "a", newline="") as f:
+    with open("revenues.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(revenue_data)
 
-    # 3. Update Employees.csv
+    # 3. Update employees.csv
     employees = []
-    with open("Employees.csv", "r") as f:
+    with open("employees.csv", "r") as f:
         reader = csv.reader(f)
         employees = list(reader)
 
@@ -122,7 +122,7 @@ def add_rental():
             employees[i][9] = f"{balance + total_cost:.2f}"
             break
 
-    with open("Employees.csv", "w", newline="") as f:
+    with open("employees.csv", "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(employees)
 

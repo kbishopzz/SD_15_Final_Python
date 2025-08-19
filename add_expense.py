@@ -7,7 +7,7 @@ from dateutil import parser
 import datetime
 
 def add_expense():
-    """Adds a new expense record to the Expenses.csv file."""
+    """Adds a new expense record to the expenses.csv file."""
 
     # Read default values from Defaults.dat
     defaults = {}
@@ -49,7 +49,7 @@ def add_expense():
     total = subtotal + hst
 
     # Prepare the data for writing to the CSV file
-    with open("Expenses.csv", "a", newline="") as f:
+    with open("expenses.csv", "a", newline="") as f:
         writer = csv.writer(f)
         for item in items:
             expense_data = (

@@ -9,7 +9,7 @@ def calculate_profit():
 
     # Calculate total revenue
     total_revenue = 0
-    with open("Revenues.csv", "r") as f:
+    with open("revenues.csv", "r") as f:
         reader = csv.reader(f)
         next(reader)  # Skip header
         for row in reader:
@@ -17,7 +17,7 @@ def calculate_profit():
 
     # Calculate total expenses
     total_expenses = 0
-    with open("Expenses.csv", "r") as f:
+    with open("expenses.csv", "r") as f:
         reader = csv.reader(f)
         next(reader)  # Skip header
         for row in reader:

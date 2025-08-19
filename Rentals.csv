@@ -10,3 +10,5 @@ RentalID,DriverNumber,StartDate,CarNumber,RentalType,NumberOfDays,RentalCost,HST
 9,12,2025-08-18,2,Weekly,7,300.00,45.00,345.00
 10,12,2025-08-18,3,Weekly,7,300.00,45.00,345.00
 11,981,2025-08-18,4,Weekly,7,300.00,45.00,345.00
+12,3445,2025-08-18,2,Weekly,7,300.00,45.00,345.00
+13,345,2025-08-18,2,Weekly,7,300.00,45.00,345.00

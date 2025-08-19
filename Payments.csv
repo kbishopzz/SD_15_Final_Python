@@ -16,3 +16,10 @@ PaymentID,DriverNumber,PaymentDate,PaymentAmount,Reason,PaymentMethod
 15,17,2025-01-02,397.64,Maintenance,Cash
 16,12,2025-08-17,256.00,Needed to Pay,Visa
 17,101,2025-08-18,345.00,Paid,Cash
+18,345,2025-08-18,300.00,,Debit
+19,345,2025-08-18,250.00,,Debit
+20,345,2025-08-18,300.00,,Debit
+21,345,2025-08-18,250.00,,Debit
+22,345,2025-08-18,240.00,,Cash
+23,345,2025-08-18,250.00,Due,Debit
+24,981,2025-08-18,345.00,Payment Due,Visa

@@ -7,7 +7,7 @@ from dateutil import parser
 import datetime
 
 def add_employee():
-    """Adds a new employee to the Employees.csv file."""
+    """Adds a new employee to the employees.csv file."""
 
     # Get employee details from user input
     driver_number = input("Enter driver number: ")
@@ -43,7 +43,7 @@ def add_employee():
     ]
 
     # Append the new employee data to the CSV file
-    with open("Employees.csv", "a", newline="") as f:
+    with open("employees.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(employee_data)
 

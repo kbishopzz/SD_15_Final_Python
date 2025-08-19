@@ -7,7 +7,7 @@ from dateutil import parser
 import datetime
 
 def add_revenue():
-    """Adds a new revenue record to the Revenues.csv file."""
+    """Adds a new revenue record to the revenues.csv file."""
 
     # Read default values from Defaults.dat
     defaults = {}
@@ -17,10 +17,10 @@ def add_revenue():
             defaults[key] = float(value)
     hst_rate = defaults.get('HST_RATE', 0.15)
 
-    # Get the next transaction number from Revenues.csv
+    # Get the next transaction number from revenues.csv
     next_transaction_number = 1
     try:
-        with open("Revenues.csv", "r") as f:
+        with open("revenues.csv", "r") as f:
             reader = csv.reader(f)
             all_lines = list(reader)
             if len(all_lines) > 1:
@@ -61,7 +61,7 @@ def add_revenue():
     ]
 
     # Append the new revenue data to the CSV file
-    with open("Revenues.csv", "a", newline="") as f:
+    with open("revenues.csv", "a", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(revenue_data)
 
